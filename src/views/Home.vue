@@ -5,6 +5,7 @@
     </h2>
     <h3 class="h-40 text-black">{{ joke }}</h3>
     <button
+      @click="addJoke"
       class="text-lg bg-blue-500 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-full mt-2 focus:outline-none"
     >
       Add Joke
@@ -13,18 +14,17 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 export default {
   name: 'Home',
-  data: () => ({
-    joke: ''
-  }),
-  // computed: {
-  //   joke() {
-  //     return this.$store.getters.getCurrentJoke;
-  //   }
-  // },
-  mounted() {
-    this.joke = this.$store.getters.getCurrentJoke;
+  methods: {
+    ...mapActions(['setCurrentJoke']),
+    addJoke() {
+      this.setCurrentJoke();
+    }
+  },
+  computed: {
+    ...mapGetters({ joke: 'getCurrentJoke' })
   }
 };
 </script>

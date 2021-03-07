@@ -2,16 +2,20 @@
   <div id="app" class="flex-row justify-between max-w-3xl mx-auto text-2xl">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/jokes">All Jokes</router-link>
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
+  methods: {
+    ...mapActions(['setCurrentJoke'])
+  },
   mounted() {
-    this.$store.dispatch('setCurrentJoke');
+    this.setCurrentJoke();
   }
 };
 </script>

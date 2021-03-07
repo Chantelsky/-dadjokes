@@ -27,7 +27,8 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    getCurrentJoke: state => state.currentJoke
+    getCurrentJoke: state => state.currentJoke,
+    getAllJokes: state => state.allJokes,
   },
   modules: {}
 });
