@@ -18,10 +18,7 @@ import { mapActions, mapGetters } from 'vuex';
 export default {
   name: 'Home',
   methods: {
-    ...mapActions(['setCurrentJoke']),
-    addJoke() {
-      this.setCurrentJoke();
-    }
+    ...mapActions({ addJoke: 'setCurrentJoke' })
   },
   computed: {
     ...mapGetters({ joke: 'getCurrentJoke' })
