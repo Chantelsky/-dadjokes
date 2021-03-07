@@ -1,4 +1,4 @@
-# doggo-app
+# dadjokes
 
 ## Project setup
 ```

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="flex-row justify-between max-w-3xl mx-auto text-2xl">
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -7,6 +7,14 @@
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.$store.dispatch('setCurrentJoke');
+  }
+};
+</script>
 
 <style>
 #app {
@@ -16,17 +24,15 @@
   text-align: center;
   color: #2c3e50;
 }
-
 #nav {
-  padding: 30px;
+  padding: 60px;
 }
-
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
-
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: blue;
 }
 </style>
